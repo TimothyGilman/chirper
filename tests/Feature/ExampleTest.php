@@ -16,4 +16,14 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /**
+     * Test the welcome View isn't rendered properly.
+     */
+    public function test_a_welcome_view_cant_be_rendered(): void
+    {
+        $view = $this->view('welcome', ['name' => 'Taylor']);
+ 
+        $view->assertDontSee('Taylor');
+    }
 }

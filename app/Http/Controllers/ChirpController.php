@@ -18,7 +18,7 @@ class ChirpController extends Controller
     {
         // return a response with React via Inertia
         return Inertia::render('Chirps/Index', [
-            // Load chirps with assoicated user id and name, ordered in rev chrono
+            // Load chirps with associated user id and name, ordered in rev chrono
             'chirps' => Chirp::with('user:id,name')->latest()->get(),
         ]);
     }
